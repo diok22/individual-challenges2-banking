@@ -10,12 +10,15 @@ describe BankAccount do
     end
   end
 
-  context "is initialized with" do
+  context "#initialize" do
     it "with an emtpy bank statement" do
       expect(bank_account.statement_history).to eq ([])
     end
-  end
 
+    it "with a balance of zero money" do
+      expect(bank_account.balance).to eq 0
+    end
+  end
 
 
 end
