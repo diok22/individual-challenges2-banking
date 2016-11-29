@@ -28,6 +28,10 @@ class BankAccount
     @statement.debit_transaction(time, amount, balance=@balance)
   end
 
+  def statement
+    @statement.print_statement
+  end
+
   private
 
   def is_number(amount)
@@ -42,5 +46,6 @@ class BankAccount
     raise "Please enter correct amount as number" unless is_number(amount)
     raise "Sorry, you don't have that much money to withdraw" unless (@balance >= amount)
   end
+
 
 end

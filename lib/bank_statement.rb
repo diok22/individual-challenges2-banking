@@ -5,7 +5,7 @@ class BankStatement
   attr_reader :transaction_history
 
   def initialize
-    @transaction_history = []
+    @transaction_history = ['date || credit || debit || balance']
   end
 
   def credit_transaction(time, amount, balance)
@@ -19,7 +19,7 @@ class BankStatement
   end
 
   def print_statement
-    @transaction_history.unshift('date || credit || debit || balance') unless @transaction_history.include?('date || credit || debit || balance')
+    @transaction_history
   end
 
 

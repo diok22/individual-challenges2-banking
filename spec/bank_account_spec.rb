@@ -12,7 +12,7 @@ describe BankAccount do
 
   describe "#initialize" do
     it "with an emtpy bank statement" do
-      expect(bank_account.statement_history).to eq ([])
+      expect(bank_account.statement_history).to eq (['date || credit || debit || balance'])
     end
 
     it "of subject with a balance of 50" do

@@ -5,8 +5,8 @@ describe BankStatement do
   subject(:statement) {described_class.new}
 
   describe "#initialize" do
-    it "with an empty transaction history array" do
-      expect(statement.transaction_history).to eq ([])
+    it "with the headings of transaction history" do
+      expect(statement.transaction_history).to eq (['date || credit || debit || balance'])
     end
   end
 
@@ -28,7 +28,6 @@ describe BankStatement do
       expect(statement.transaction_history).to include('date || credit || debit || balance')
     end
   end
-
 
 
 end
