@@ -20,5 +20,26 @@ describe BankAccount do
     end
   end
 
+  context "#deposit" do
+    it "increases the balance money" do
+      expect{bank_account.deposit(50)}.to change{bank_account.balance}.from(0).to(50)
+    end
+
+    context "error" do
+      it "raises if amount argument is a string" do
+        expect{bank_account.deposit("10")}.to raise_error "Please enter correct amount as number"
+      end
+
+      it "is not raised if amount argument is an integer" do
+        expect{bank_account.deposit(100)}.not_to raise_error
+      end
+
+      it "is not raised if amount argument is a float" do
+        expect{bank_account.deposit(200.50)}.not_to raise_error
+      end
+    end
+
+  end
+
 
 end
