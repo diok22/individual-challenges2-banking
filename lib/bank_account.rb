@@ -1,4 +1,5 @@
 require_relative 'bank_statement'
+require_relative 'transaction'
 
 class BankAccount
 
@@ -16,7 +17,7 @@ class BankAccount
     @statement.transaction_history
   end
 
-  def deposit(amount)
+  def deposit(amount, time=Time.now)
     raise "Please enter correct amount as number" unless is_number(amount)
     @balance += amount
   end

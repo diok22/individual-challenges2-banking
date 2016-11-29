@@ -10,7 +10,7 @@ describe BankAccount do
     end
   end
 
-  context "#initialize" do
+  describe "#initialize" do
     it "with an emtpy bank statement" do
       expect(bank_account.statement_history).to eq ([])
     end
@@ -26,7 +26,7 @@ describe BankAccount do
 
   end
 
-  context "#deposit" do
+  describe "#deposit" do
     it "increases the balance money" do
       expect{bank_account.deposit(50)}.to change{bank_account.balance}.from(50).to(100)
     end
@@ -44,9 +44,15 @@ describe BankAccount do
         expect{bank_account.deposit(200.50)}.not_to raise_error
       end
     end
+
+    # context "new transaction" do
+    #
+    #
+    # end
+
   end
 
-  context "#withdraw" do
+  describe "#withdraw" do
     it "decreases the balance money" do
       expect{bank_account.withdraw(20)}.to change{bank_account.balance}.from(50).to(30)
     end

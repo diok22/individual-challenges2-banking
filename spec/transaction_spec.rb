@@ -4,7 +4,7 @@ describe Transaction do
 
   subject(:transaction) {described_class.new}
 
-  context "#initialize" do
+  describe "#initialize" do
     context "with empty (being zero) if no arguments are passed attributes of:" do
       it "time" do
         expect(transaction.time).to be 0
