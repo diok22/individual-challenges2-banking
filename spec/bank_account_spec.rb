@@ -45,10 +45,12 @@ describe BankAccount do
       end
     end
 
-    # context "new transaction" do
-    #
-    #
-    # end
+    context "new transaction" do
+      it "logs the transaction in the statement_history" do
+        expect{bank_account.deposit(20)}.to change{bank_account.statement_history.length}.by (1)
+      end
+
+    end
 
   end
 

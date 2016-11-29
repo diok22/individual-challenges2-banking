@@ -9,12 +9,12 @@ class BankStatement
   end
 
   def credit_transaction(time, amount, balance)
-    deposit_transaction = Transaction.new(time=time, credit=amount, balance=balance)
+    deposit_transaction = Transaction.new(time=time, credit=amount, debit=0, balance=balance)
     @transaction_history << deposit_transaction
   end
 
   def debit_transaction(time, amount, balance)
-    withdraw_transaction = Transaction.new(time=time, credit=amount, balance=balance)
+    withdraw_transaction = Transaction.new(time=time, credit=0, debit=amount, balance=balance )
     @transaction_history << withdraw_transaction
   end
 

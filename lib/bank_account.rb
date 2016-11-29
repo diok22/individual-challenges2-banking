@@ -20,6 +20,7 @@ class BankAccount
   def deposit(amount, time=Time.now)
     raise "Please enter correct amount as number" unless is_number(amount)
     @balance += amount
+    @statement.credit_transaction(time, amount, balance=@balance)
   end
 
   def withdraw(amount)
