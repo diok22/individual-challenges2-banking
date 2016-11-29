@@ -20,6 +20,7 @@ class BankAccount
 
   def withdraw(amount)
     raise "Please enter correct amount as number" unless (amount.is_a? Numeric)
+    raise "Sorry, you don't have that much money to withdraw" unless (@balance >= amount)
     @balance -= amount
   end
 

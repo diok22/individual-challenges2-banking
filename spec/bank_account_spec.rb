@@ -57,6 +57,10 @@ describe BankAccount do
       it "is not raised if amount argument is a float" do
         expect{bank_account.withdraw(20.50)}.not_to raise_error
       end
+
+      it "raises if amount to be withdrawn is greater than current balance" do
+        expect{bank_account.withdraw(70)}.to raise_error "Sorry, you don't have that much money to withdraw"
+      end
     end
 
 
