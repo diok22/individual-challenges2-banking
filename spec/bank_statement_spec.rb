@@ -22,6 +22,13 @@ describe BankStatement do
     end
   end
 
+  describe "#print_statement" do
+    it "has a fixed header in the first element of array" do
+      statement.print_statement
+      expect(statement.transaction_history).to include('date || credit || debit || balance')
+    end
+  end
+
 
 
 end

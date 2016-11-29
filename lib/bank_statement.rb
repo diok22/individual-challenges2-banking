@@ -18,4 +18,9 @@ class BankStatement
     @transaction_history << withdraw_transaction
   end
 
+  def print_statement
+    @transaction_history.unshift('date || credit || debit || balance') unless @transaction_history.include?('date || credit || debit || balance')
+  end
+
+
 end
