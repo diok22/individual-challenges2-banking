@@ -28,8 +28,8 @@ class BankAccount
     @statement.debit_transaction(time, amount, balance=@balance)
   end
 
-  def statement
-    @statement.print_statement
+  def print_statement
+    @statement.list_transactions
   end
 
   private
