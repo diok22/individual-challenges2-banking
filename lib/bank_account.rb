@@ -14,14 +14,20 @@ class BankAccount
   end
 
   def deposit(amount)
-    raise "Please enter correct amount as number" unless (amount.is_a? Numeric)
+    raise "Please enter correct amount as number" unless is_number(amount)
     @balance += amount
   end
 
   def withdraw(amount)
-    raise "Please enter correct amount as number" unless (amount.is_a? Numeric)
+    raise "Please enter correct amount as number" unless is_number(amount)
     raise "Sorry, you don't have that much money to withdraw" unless (@balance >= amount)
     @balance -= amount
+  end
+
+  private
+
+  def is_number(amount)
+    amount.is_a? Numeric
   end
 
 end

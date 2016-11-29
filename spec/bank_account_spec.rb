@@ -62,11 +62,6 @@ describe BankAccount do
         expect{bank_account.withdraw(70)}.to raise_error "Sorry, you don't have that much money to withdraw"
       end
     end
-
-
-
-
   end
-
 
 end
