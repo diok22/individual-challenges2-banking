@@ -51,11 +51,11 @@ describe BankAccount do
       end
 
       it "is not raised if amount argument is an integer" do
-        expect{bank_account.withdraw(100)}.not_to raise_error
+        expect{bank_account.withdraw(15)}.not_to raise_error
       end
 
       it "is not raised if amount argument is a float" do
-        expect{bank_account.withdraw(200.50)}.not_to raise_error
+        expect{bank_account.withdraw(20.50)}.not_to raise_error
       end
     end
 
