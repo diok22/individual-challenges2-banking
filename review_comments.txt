@@ -1,0 +1,2 @@
+Bank statement currently holds more than one responsibility.
+@balance is currently used twice. Can be removed as initialized from the bank account
