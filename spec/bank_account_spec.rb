@@ -19,7 +19,7 @@ describe BankAccount do
       expect(bank_account.balance).to eq 50
     end
 
-    it "of instance with no argument take constant value for opening balance" do
+    it "of instance with no argument takes constant value for opening balance" do
       expect(BankAccount.new.balance).to eq BankAccount::ZERO_OPENING_BALANCE
     end
 
