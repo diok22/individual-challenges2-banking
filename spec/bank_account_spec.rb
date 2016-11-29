@@ -2,7 +2,7 @@ require 'bank_account'
 
 describe BankAccount do
 
-  subject(:bank_account) {described_class.new}
+  subject(:bank_account) {described_class.new(50)}
 
   context "exists as a class" do
     it "thus user can create a new bank account" do
@@ -16,13 +16,13 @@ describe BankAccount do
     end
 
     it "with a balance of zero money" do
-      expect(bank_account.balance).to eq 0
+      expect(bank_account.balance).to eq 50
     end
   end
 
   context "#deposit" do
     it "increases the balance money" do
-      expect{bank_account.deposit(50)}.to change{bank_account.balance}.from(0).to(50)
+      expect{bank_account.deposit(50)}.to change{bank_account.balance}.from(50).to(100)
     end
 
     context "error" do
@@ -42,10 +42,22 @@ describe BankAccount do
 
   context "#withdraw" do
     it "decreases the balance money" do
-      bank_account.deposit(70)
-      expect{bank_account.withdraw(50)}.to change{bank_account.balance}.from(70).to(20)
+      expect{bank_account.withdraw(20)}.to change{bank_account.balance}.from(50).to(30)
     end
 
+    context "error" do
+      it "raises if amount argument is a string" do
+        expect{bank_account.withdraw("10")}.to raise_error "Please enter correct amount as number"
+      end
+
+      it "is not raised if amount argument is an integer" do
+        expect{bank_account.withdraw(100)}.not_to raise_error
+      end
+
+      it "is not raised if amount argument is a float" do
+        expect{bank_account.withdraw(200.50)}.not_to raise_error
+      end
+    end
 
 
 
