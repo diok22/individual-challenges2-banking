@@ -15,9 +15,15 @@ describe BankAccount do
       expect(bank_account.statement_history).to eq ([])
     end
 
-    it "with a balance of zero money" do
+    it "of subject with a balance of 50" do
       expect(bank_account.balance).to eq 50
     end
+
+    it "of instance with no argument take constant value for opening balance" do
+      expect(BankAccount.new.balance).to eq BankAccount::ZERO_OPENING_BALANCE
+    end
+
+
   end
 
   context "#deposit" do
