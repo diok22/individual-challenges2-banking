@@ -49,7 +49,6 @@ describe BankAccount do
       it "logs the transaction in the statement_history" do
         expect{bank_account.deposit(20)}.to change{bank_account.statement_history.length}.by (1)
       end
-
     end
 
   end
@@ -74,6 +73,12 @@ describe BankAccount do
 
       it "raises if amount to be withdrawn is greater than current balance" do
         expect{bank_account.withdraw(70)}.to raise_error "Sorry, you don't have that much money to withdraw"
+      end
+    end
+
+    context "new transaction" do
+      it "logs the transaction in the statement_history" do
+        expect{bank_account.withdraw(10)}.to change{bank_account.statement_history.length}.by (1)
       end
     end
   end

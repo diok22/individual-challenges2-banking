@@ -23,10 +23,11 @@ class BankAccount
     @statement.credit_transaction(time, amount, balance=@balance)
   end
 
-  def withdraw(amount)
+  def withdraw(amount, time=Time.now)
     raise "Please enter correct amount as number" unless is_number(amount)
     raise "Sorry, you don't have that much money to withdraw" unless (@balance >= amount)
     @balance -= amount
+    @statement.debit_transaction(time, amount, balance=@balance)
   end
 
   private
