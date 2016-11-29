@@ -28,6 +28,10 @@ class BankAccount
     @statement.debit_transaction(time, amount, balance=@balance)
   end
 
+  def print_statement
+    @statement.list_transactions
+  end
+
   private
 
   def is_number(amount)

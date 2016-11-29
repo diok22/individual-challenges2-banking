@@ -18,9 +18,18 @@ class BankStatement
     @transaction_history << withdraw_transaction
   end
 
-  def print_statement
-    @transaction_history.unshift('date || credit || debit || balance') unless @transaction_history.include?('date || credit || debit || balance')
+  def list_transactions
+    puts 'date || credit || debit || balance'
+    transaction_per_line
   end
 
+  private
+
+  def transaction_per_line
+    @transaction_history.reverse.map do |transaction|
+      converted_date = transaction.time.strftime("%d/%m/%Y")
+      puts "#{converted_date} || #{transaction.credit} || #{transaction.debit} || #{transaction.balance}"
+    end
+  end
 
 end
