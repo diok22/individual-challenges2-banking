@@ -7,7 +7,6 @@ class BankAccount
 
   ZERO_OPENING_BALANCE = 0
 
-
   def initialize(opening_balance=ZERO_OPENING_BALANCE)
     @statement = BankStatement.new
     @balance = opening_balance
@@ -18,14 +17,13 @@ class BankAccount
   end
 
   def deposit(amount, time=Time.now)
-    raise "Please enter correct amount as number" unless is_number(amount)
+    error_deposit(amount)
     @balance += amount
     @statement.credit_transaction(time, amount, balance=@balance)
   end
 
   def withdraw(amount, time=Time.now)
-    raise "Please enter correct amount as number" unless is_number(amount)
-    raise "Sorry, you don't have that much money to withdraw" unless (@balance >= amount)
+    error_withdraw(amount)
     @balance -= amount
     @statement.debit_transaction(time, amount, balance=@balance)
   end
@@ -34,6 +32,15 @@ class BankAccount
 
   def is_number(amount)
     amount.is_a? Numeric
+  end
+
+  def error_deposit(amount)
+    raise "Please enter correct amount as number" unless is_number(amount)
+  end
+
+  def error_withdraw(amount)
+    raise "Please enter correct amount as number" unless is_number(amount)
+    raise "Sorry, you don't have that much money to withdraw" unless (@balance >= amount)
   end
 
 end
