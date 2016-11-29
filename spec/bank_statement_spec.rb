@@ -16,4 +16,12 @@ describe BankStatement do
     end
   end
 
+  describe "#debit_transaction" do
+    it "logs a debit transaction" do
+      expect{statement.debit_transaction(Time.new,100,0)}.to change{statement.transaction_history.length}.by (1)
+    end
+  end
+
+
+
 end
