@@ -12,7 +12,7 @@ describe BankAccount do
 
   context "is initialized with" do
     it "with an emtpy bank statement" do
-      expect(bank_account.statement).to eq ([])
+      expect(bank_account.statement_history).to eq ([])
     end
   end
 
