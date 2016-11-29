@@ -19,17 +19,18 @@ class BankStatement
   end
 
   def list_transactions
-    puts 'date || credit || debit || balance'
+    @display = "date || credit || debit || balance" + "\n"
     transaction_per_line
   end
-  
+
   private
 
   def transaction_per_line
     @transaction_history.reverse.map do |transaction|
       converted_date = transaction.time.strftime("%d/%m/%Y")
-      puts "#{converted_date} || #{transaction.credit} || #{transaction.debit} || #{transaction.balance}"
+      @display << "#{converted_date} || #{transaction.credit} || #{transaction.debit} || #{transaction.balance}" + "\n"
     end
+    puts @display
   end
 
 end

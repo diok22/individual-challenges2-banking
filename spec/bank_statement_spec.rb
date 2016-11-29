@@ -29,5 +29,4 @@ describe BankStatement do
   #   end
   # end
 
-
 end
